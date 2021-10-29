@@ -1,0 +1,37 @@
+.footer {
+  background-image: url('../../images/footer-bg.jpg');
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+.footer-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.call-center{
+  padding: 3% 5%;
+  background-color: rgba(165, 208, 211, 0.199);
+}
+
+@media only screen and (max-width: 1200px) {
+
+}
+@media only screen and (max-width: 992px) {
+.footer{
+  margin-top: 50px;
+}
+}
+
+@media only screen and (max-width: 600px) {
+.footer{
+  height: 100%;
+  width: 100%;
+  padding: 50px;
+}
+.call-center{
+  padding: 20px;
+  background-color: rgba(165, 208, 211, 0.199);
+}
+
+} 
