@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import img from '../../images/banner.png'
+import img from '../../../images/banner.png'
 const Banner = () => {
   return (
     <div className="row m-0 bg-info">

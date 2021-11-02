@@ -5,16 +5,20 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Header from './Pages/Shared/Header/Header';
+import Header from './Shared/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './Pages/Shared/Footer/Footer'
+import Footer from './Shared/Footer/Footer'
 import Banner from './Pages/Home/Banner/Banner';
+import Articles from './Pages/Home/Articles/Articles';
+import Login from './Pages/Login/Login';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
   return (
-    <div className="App">
+    // <div className="App">
+     <AuthProvider>
       <Router>
-        <Header/>
+        <Header />
       <Switch>
         <Route path="/about">
           {/* <About /> */}
@@ -24,12 +28,15 @@ function App() {
         </Route>
         <Route path="/">
             {/* <Home /> */}
+            <Login />
             <Banner></Banner>
+            <Articles></Articles>
+            
         </Route>
         </Switch>
         <Footer/>
     </Router >
-    </div>
+    </AuthProvider>
   );
 }
 

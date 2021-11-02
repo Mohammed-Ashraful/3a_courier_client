@@ -13,15 +13,14 @@ const Footer = () => {
           <h2>+938424630</h2>
       </div>
       </div>
-      <h1>3A Courier </h1>
 
       <div className="fs-1 ps-5">
         <i className="px-3 fs-2 fab fa-facebook"></i>
         <i className="px-3 fs-2 fab fa-instagram"></i>
         <i className="px-3 fs-2 fab fa-github"></i>
-        <i className="px-3 fs-2 fab fa-twitter"></i>
+        <i className="px-3 fs-2 fab fa-twitter"></i> <br />
+       <small>© 3A courier All Rights Reserved </small>
       </div>
-      <span> © 3A courier All Rights Reserved</span>
     </div>
   );
 };
