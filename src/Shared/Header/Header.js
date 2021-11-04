@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 const Header = () => {
   const { user, logOut } = useAuth();
-  console.log('ald', user);
+  // console.log('ald', user);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -27,7 +27,7 @@ const Header = () => {
                 <NavDropdown title={<b className='text-white'>{user.displayName}</b>} id="basic-nav-dropdown">
 
                     <NavDropdown.Item as={Link} to='/orders'>My Orders</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to='/allOrders'>Manage All Orders</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to='/myOrders'>Manage All Orders</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/addService'>Add service</NavDropdown.Item>
                     
                   <NavDropdown.Divider />

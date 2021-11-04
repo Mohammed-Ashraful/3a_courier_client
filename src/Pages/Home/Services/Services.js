@@ -5,11 +5,10 @@ import './Services.css'
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/service')
+    fetch('https://young-fjord-77077.herokuapp.com/service')
       .then(res => res.json())
       .then(data => setServices(data))
   },[])
-console.log(services);
   return (
     <div className='service-container container py-5'>
       {
@@ -24,7 +23,9 @@ console.log(services);
               <Button variant="primary"
               as={Link}
                 className=' text-white py-2 mx-5'
-                to={`/services/${service._id}`}>Book Now</Button>
+                to={`/services/${service._id}`
+                  
+                }>Book Now</Button>
           </Card.Body>
           </Card>
         

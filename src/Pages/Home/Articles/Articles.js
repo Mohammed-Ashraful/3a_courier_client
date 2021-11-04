@@ -5,11 +5,11 @@ import './Articles.css';
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/news')
+    fetch('https://young-fjord-77077.herokuapp.com/news')
       .then(res => res.json())
       .then(data => setArticles(data))
   }, [])
-  console.log(articles);
+  // console.log(articles);
   return (
     <div className='row m-0 p-0 article-container'>
       <h1 className='py-5 text-primary'> Articles About our business strategy</h1>

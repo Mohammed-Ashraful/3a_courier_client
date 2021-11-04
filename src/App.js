@@ -15,10 +15,11 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Contact from './Pages/Home/Contact/Contact';
 import NotFound from './NotFound/NotFound';
 import Home from './Pages/Home/Home/Home';
-import Order from './Pages/Home/Order/Order';
-import AllOrder from './Pages/Home/AllOrder/AllOrder';
+import MyOrder from './Pages/Home/MyOrder/MyOrder';
 import AddService from './Pages/Home/AddService/AddService';
 import Booking from './Pages/Home/Booking/Booking';
+import BookingInfo from './Pages/Home/BookingInfo/BookingInfo';
+import ManageOrder from './Pages/Home/ManageOrder/ManageOrder';
 
 function App() {
   return (
@@ -47,10 +48,10 @@ function App() {
               <Contact />
             </Route>
             <Route path="/orders">
-              <Order />
+              <MyOrder />
             </Route>
-            <Route path="/allOrders">
-              <AllOrder />
+            <Route path="/myOrders">
+              <ManageOrder/>
             </Route>
             <PrivateRoute path="/service">
               <Services />
@@ -62,7 +63,9 @@ function App() {
             <Route path="/addService">
               <AddService />
             </Route>
-
+            <Route path='/bookingInfo'>
+            <BookingInfo></BookingInfo>
+            </Route>
 
             <Route path='*'>
               <NotFound></NotFound>

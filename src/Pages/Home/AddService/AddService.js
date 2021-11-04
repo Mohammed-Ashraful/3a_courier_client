@@ -6,8 +6,7 @@ const AddService = () => {
 
   const { register, handleSubmit,reset } = useForm();
   const onSubmit = data => {
-    axios.post('http://localhost:5000/service', data)
-    // axios.post('https://young-fjord-77077.herokuapp.com/service', data)
+    axios.post('https://young-fjord-77077.herokuapp.com/service', data)
       .then(res => {
         reset();
       if (res.data.insertedId) {
