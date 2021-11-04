@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card,Button } from 'react-bootstrap';
 import useAuth from '../../../Hooks/useAuth';
@@ -5,6 +6,25 @@ import './MyOrder.css'
 const MyOrder = () => {
   const [singleOrder, setSingleOrder] = useState([]);
   const { user } = useAuth();
+
+  const handleRemove = id => {
+    const url = `http://localhost:5000/order/${id}`
+    fetch(url, {
+      method: 'DELETE'
+    })
+      .then(res => res.json())
+      .then(data => {
+        window.confirm("R U SURE ")
+        setSingleOrder(data)
+      })
+  }
+  const handleStatus = (data) => {
+    // console.log('data',data);
+    // data.status = 'Approved';
+    //    axios.post('https://young-fjord-77077.herokuapp.com/order', data)
+    //   .then(res => res.json())
+  }
+
   useEffect(() => {
     fetch('https://young-fjord-77077.herokuapp.com/order')
       .then(res => res.json())
@@ -31,8 +51,8 @@ const MyOrder = () => {
             </div>
             <div className="col-md-4 col-lg-4 col-12">
               <h5>Status : {order.status} </h5>
-              <Button className='me-5 mt-3'>Remove</Button>
-              <Button className='ms-5 mt-3'>Approved</Button>
+              <Button className='me-5 mt-3 bg-danger' onClick={()=>handleRemove(order._id)} >Remove</Button>
+              <Button className='ms-5 mt-3' onClick={handleStatus} >Approved</Button>
             </div>
           </div>
         </div>)
