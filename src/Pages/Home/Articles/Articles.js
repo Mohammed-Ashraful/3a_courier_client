@@ -9,14 +9,14 @@ const Articles = () => {
       .then(res => res.json())
       .then(data => setArticles(data))
   }, [])
-  // console.log(articles);
+  console.log(articles);
   return (
     <div className='row m-0 p-0 article-container'>
       <h1 className='py-5 text-primary'> Articles About our business strategy</h1>
-      <div className="col-lg-6 col-md-12 col-12 m-0 p-5 ">
+      <div className="col-lg-6 col-md-12 col-12 m-0 ">
         <Col className='p-5'>
           <Card>
-            <Card.Img variant="top" src={`https://i.ibb.co/xFfm1Ym/blog-01-1.jpg`} />
+            <Card.Img  src={`https://i.ibb.co/xFfm1Ym/blog-01-1.jpg`} />
             <Card.Body>
               <Card.Title>All City Cafes and Restaurants Switched to Delivery Mode</Card.Title>
 
@@ -34,9 +34,8 @@ const Articles = () => {
 
             <div className='container'>
               { articles?.map(article =>
-                <Card className='p-0  news-container' style={{ width: '30rem' }}>
-                  <Card.Img variant="top" src={article.img} className='img-fluid  news-img' />
-                  {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                <Card className='p-2 m-5 news-container'>
+                  <Card.Img variant="top" src={article.img} className='img-fluid news-img' />
                   <Card.Body>
                     <Card.Title>{article.title}</Card.Title>
                     <Button variant="primary">See more ...</Button>

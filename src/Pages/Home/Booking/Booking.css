@@ -1,13 +1,12 @@
-.booking-container{
-  width: 50%;
+.booking-info{
+  background-color: rgb(230, 228, 228);
 }
-@media only screen and (max-width: 600px) {
-  .booking-container{
-  width: 100%;
-  padding: 10px;
-  border-radius: 20px;
+.booking-info:hover{
+  background-color: rgb(209, 201, 201);
+   transition: all 3s;
+   transform: scale(1.05);
 }
-}
+
 .booking form{
  display: flex;
  flex-direction: column;
@@ -15,7 +14,7 @@
  margin-bottom: 20px;
 }
 .booking form input{
-width: 40%;
+width: 80%;
 margin-top: 10px;
 padding: 10px 10px;
 }
@@ -28,6 +27,12 @@ padding: 10px 10px;
 
 }
 @media only screen and (max-width: 600px) {
+    .booking-container{
+  width: 100%;
+  padding: 50px 20px;
+  border-radius: 20px;
+
+}
 .booking form input{
 width: 90%;
 margin-top: 10px;

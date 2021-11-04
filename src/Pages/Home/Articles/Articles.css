@@ -11,8 +11,17 @@
   background-color: rgb(222, 245, 198);
 }
 @media only screen and (max-width: 600px) {
+
+.news-img{
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
 .news-container{
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+  padding: 50px;
+  height: 300px;
+  width: 60%;
+  object-fit: cover;
 }
 }

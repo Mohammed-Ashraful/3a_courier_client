@@ -7,14 +7,14 @@ const Contact = () => {
         {/* This is address section There had our all address information to with us  */}
         <div className="col-lg-6 col-12">
           <h2 className="pt-5">
-            <b className="text-primary">Address : </b>Agargaw, Mirpur 10 <br />
+            <b className="text-primary">Address : </b> Mirpur 10 <br />
             Dhaka
           </h2>
           <h2 className="pt-5">
-            <b className="text-primary">Phone : </b> +08801739749344
+            <b className="text-primary">Phone : </b> +389723645
           </h2>
           <h2 className="pt-5">
-            <b className="text-primary">Email : </b> ks.hospital@gmail.com
+            <b className="text-primary">Email : </b> 3a.courier@gmail.com
           </h2>
         </div>
 

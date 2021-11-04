@@ -18,7 +18,6 @@ import Home from './Pages/Home/Home/Home';
 import MyOrder from './Pages/Home/MyOrder/MyOrder';
 import AddService from './Pages/Home/AddService/AddService';
 import Booking from './Pages/Home/Booking/Booking';
-import BookingInfo from './Pages/Home/BookingInfo/BookingInfo';
 import ManageOrder from './Pages/Home/ManageOrder/ManageOrder';
 
 function App() {
@@ -50,7 +49,7 @@ function App() {
             <Route path="/orders">
               <MyOrder />
             </Route>
-            <Route path="/myOrders">
+            <Route path="/allOrders">
               <ManageOrder/>
             </Route>
             <PrivateRoute path="/service">
@@ -63,10 +62,6 @@ function App() {
             <Route path="/addService">
               <AddService />
             </Route>
-            <Route path='/bookingInfo'>
-            <BookingInfo></BookingInfo>
-            </Route>
-
             <Route path='*'>
               <NotFound></NotFound>
             </Route>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card,Button, Row } from 'react-bootstrap';
+import { Card,Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Services.css'
 const Services = () => {
@@ -10,6 +10,8 @@ const Services = () => {
       .then(data => setServices(data))
   },[])
   return (
+    <>
+    <h1>All of our services </h1>
     <div className='service-container container py-5'>
       {
         services?.map(service =>
@@ -32,6 +34,7 @@ const Services = () => {
         )
       }
     </div>
+    </>
   );
 };
 

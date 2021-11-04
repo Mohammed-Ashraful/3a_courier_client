@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import './Booking.css'
+
 const Booking = () => {
 
   const [service, setService] = useState([]);
@@ -12,10 +13,11 @@ const Booking = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
 
+
   const onSubmit = data => {
     data.serviceOrder = service;
     data.status = 'pending';
-    axios.post('http://localhost:5000/order', data)
+    axios.post('https://young-fjord-77077.herokuapp.com/order', data)
       .then(res => {
         reset();
         if (res.data.insertedId) {
@@ -28,10 +30,11 @@ const Booking = () => {
     fetch(`https://young-fjord-77077.herokuapp.com/service/${id}`)
       .then(res => res.json())
       .then(data => setService(data))
-  },[])
+  }, [])
+  
   return (
-    <div className='container booking-container'>
-      <Card>
+    <div className='container booking-container row'>
+      <Card className='col-md-6 col-12 p-5 my-4 booking-info'>
         <Card.Img variant="top" src={service.img} alt='service-images' />
         <Card.Body>
           <Card.Title>{service.name}</Card.Title>
@@ -43,8 +46,8 @@ const Booking = () => {
           >Book Now </Button>
         </Card.Body>
       </Card>
-      <div className='booking'>
-        <h1>Please add a service </h1>
+      <div className='booking col-md-6 col-12'>
+        <h1>Please booking a service </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input value={user?.displayName} placeholder='Enter Your  Name' {...register("Name", { required: true })} />
           <input value={user?.email} placeholder='Enter Email' {...register("email")} />
