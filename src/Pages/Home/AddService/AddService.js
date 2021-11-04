@@ -1,10 +1,20 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import './AddService.css'
 const AddService = () => {
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit,reset } = useForm();
+  const onSubmit = data => {
+    axios.post('http://localhost:5000/service', data)
+    // axios.post('https://young-fjord-77077.herokuapp.com/service', data)
+      .then(res => {
+        reset();
+      if (res.data.insertedId) {
+        alert('Added Successfully ')
+      }
+    })
+  };
   return (
     <div className='add-services'>
       <h1>Please add a service </h1>

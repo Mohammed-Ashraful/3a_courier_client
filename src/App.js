@@ -1,4 +1,3 @@
-
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -8,8 +7,6 @@ import {
 import Header from './Shared/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Shared/Footer/Footer'
-import Banner from './Pages/Home/Banner/Banner';
-import Articles from './Pages/Home/Articles/Articles';
 import Login from './Pages/Login/Login';
 import AuthProvider from './Context/AuthProvider';
 import About from './Pages/Home/About/About';
@@ -21,6 +18,7 @@ import Home from './Pages/Home/Home/Home';
 import Order from './Pages/Home/Order/Order';
 import AllOrder from './Pages/Home/AllOrder/AllOrder';
 import AddService from './Pages/Home/AddService/AddService';
+import Booking from './Pages/Home/Booking/Booking';
 
 function App() {
   return (
@@ -54,13 +52,17 @@ function App() {
             <Route path="/allOrders">
               <AllOrder />
             </Route>
+            <PrivateRoute path="/service">
+              <Services />
+            </PrivateRoute>
+            <PrivateRoute path="/services/:id">
+              <Booking></Booking>
+            </PrivateRoute>
+
             <Route path="/addService">
               <AddService />
             </Route>
 
-            <PrivateRoute path="/service">
-              <Services />
-            </PrivateRoute>
 
             <Route path='*'>
               <NotFound></NotFound>

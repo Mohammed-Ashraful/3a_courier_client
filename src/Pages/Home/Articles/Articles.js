@@ -1,14 +1,20 @@
-import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Card, Col, Button } from 'react-bootstrap';
 import './Articles.css';
 
-
-
 const Articles = () => {
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/news')
+      .then(res => res.json())
+      .then(data => setArticles(data))
+  }, [])
+  console.log(articles);
   return (
-    <div className='row m-0 p-0'>
-      <div className="col-lg-6 col-md-6 col-12 m-0 p-0">
-        <Col>
+    <div className='row m-0 p-0 article-container'>
+      <h1 className='py-5 text-primary'> Articles About our business strategy</h1>
+      <div className="col-lg-6 col-md-12 col-12 m-0 p-5 ">
+        <Col className='p-5'>
           <Card>
             <Card.Img variant="top" src={`https://i.ibb.co/xFfm1Ym/blog-01-1.jpg`} />
             <Card.Body>
@@ -22,15 +28,23 @@ const Articles = () => {
           </Card>
         </Col>
       </div>
-      <div className="col-lg-6 col-md-6 col-12">
-        <div className="row m-0 p-0">
-              <div className="col-lg-12 col-md-6 col-12">2222222
-              </div>
-              <div className="col-lg-12 col-md-6 col-12">3333333
-              </div>
-              <div className="col-lg-12 col-md-6 col-12">4444444
-              </div>
-        </div>
+
+      <div className="col-lg-6 col-md-12 col-12 ">
+        <div className="row m-0 p-0 ">
+
+            <div className='container'>
+              { articles?.map(article =>
+                <Card className='p-0  news-container' style={{ width: '30rem' }}>
+                  <Card.Img variant="top" src={article.img} className='img-fluid  news-img' />
+                  {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                  <Card.Body>
+                    <Card.Title>{article.title}</Card.Title>
+                    <Button variant="primary">See more ...</Button>
+                  </Card.Body>
+                </Card>
+                ) }
+            </div>
+          </div>
       </div>
     </div>
   );

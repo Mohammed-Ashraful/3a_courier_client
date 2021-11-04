@@ -1,0 +1,18 @@
+.news-img{
+  height: 120px;
+  object-fit: cover;
+}
+.news-container{
+  height: 250px;
+  object-fit: cover;
+  margin: 20px 0px;
+}
+.article-container{
+  background-color: rgb(222, 245, 198);
+}
+@media only screen and (max-width: 600px) {
+.news-container{
+  margin: 0px;
+  padding: 0px;
+}
+}
