@@ -6,41 +6,38 @@ import initializeAuthentication from '../Firebase/firebase.init';
 initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [error,setError]=useState('')
+  const [isLoading, setIsLoading] = useState(true);
+
   const provider = new GoogleAuthProvider();
   
   const auth = getAuth();
   const signInUsingGoogle = () => {
+    setIsLoading(true)
+   return signInWithPopup(auth, provider)
     
-    signInWithPopup(auth, provider)
-    .then((result) => {
-      setUser(result.user)
-    })
-    .catch((error) => {
-      setError(error);
-    })
   }
-  const logOut = () => { 
+  const logOut = () => {
+    setIsLoading(true)
     signOut(auth).then(() => {
-      
-    }).catch((error) => {
-      
-    });
+      setUser({})
+    }).finally(() => setIsLoading(false))
   }
 
 
   useEffect(() => {
+    setIsLoading(true)
     onAuthStateChanged(auth, users => {
       if (users) {
       console.log('inside state changed' , users);
       setUser(users);
-    }
+      }
+      setIsLoading(false)
   })
   }, [])
   
 
 
-  return {user,error,signInUsingGoogle,logOut}
+  return {user,isLoading,signInUsingGoogle,logOut}
 };
 
 export default useFirebase;

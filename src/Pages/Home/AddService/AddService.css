@@ -1,0 +1,26 @@
+.add-services form{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-bottom: 20px;
+}
+.add-services form input{
+width: 40%;
+margin-top: 10px;
+padding: 10px 10px;
+}
+.add-services form input:focus{
+  box-shadow: 3px 3px 20px rgb(212, 209, 209);
+  border: none;
+}
+
+@media only screen and (max-width: 1200px) {
+
+}
+@media only screen and (max-width: 600px) {
+.add-services form input{
+width: 90%;
+margin-top: 10px;
+padding: 10px 10px;
+}
+}
