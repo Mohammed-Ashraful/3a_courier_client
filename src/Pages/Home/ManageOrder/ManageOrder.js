@@ -5,7 +5,7 @@ import { Card,Button } from 'react-bootstrap';
 const ManageOrder = () => {
   const [singleOrder, setSingleOrder] = useState([]);
   const handleRemove = id => {
-    const url = `http://localhost:5000/order/${id}`
+    const url = `https://courier-8bde7.web.app/orders/${id}`
     fetch(url, {
       method: 'DELETE'
     })
@@ -29,7 +29,11 @@ const ManageOrder = () => {
     <>
       <h1>Manage All Order </h1>
       {
-        singleOrder?.map(order => <div className='m-0 p-0 row'>
+        singleOrder?.map(order =>
+          <div
+            key={order._id}
+            className='m-0 p-0 row'>
+            
           <div className="order-bg container row mx-auto my-5 py-5 rounded">
           <div className="col-md-4 col-lg-4 m-0 ">
           <img src={order.serviceOrder.img} alt='img' />
@@ -45,7 +49,7 @@ const ManageOrder = () => {
             </div>
             <div className="col-md-4 col-lg-4">
               <h5>Status : {order.status} </h5>
-              <Button className='me-5 mt-3 bg-danger' onClick={() => handleRemove(order._id)} >Remove</Button>
+                <Button className='me-5 mt-3 bg-danger' onClick={() => handleRemove(order._id)} >Remove</Button>
               <Button className='ms-5 mt-3' onClick={handleStatus} >Approved</Button>
             </div>
           </div>  
